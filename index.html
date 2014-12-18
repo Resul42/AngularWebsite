@@ -1,0 +1,33 @@
+<!doctype html>
+<html ng-app="ui.bootstrap.demo">
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
+    <script src="example.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+
+<script type="text/ng-template" id="customTemplate.html">
+  <a>
+      <span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
+  </a>
+</script>
+<div class='container-fluid' ng-controller="TypeaheadCtrl">
+
+    <h4>CPU</h4>
+    <pre>SELECTED CPU: {{selected | json}}</pre>
+    <input type="text" ng-model="selected" placeholder="Kies je CPU" typeahead="part.Product + part.Uitvoering as part.Product + ' ' + part.Uitvoering for part in componentsCPU | filter:$viewValue | limitTo:100" class="form-control">
+
+    <h4>GPU</h4>
+    <pre>SELECTED GPU: {{cpuselected | json}}</pre>
+    <input type="text" ng-model="cpuselected" placeholder="Kies je GPU" typeahead="part.Product + part.Uitvoering as part.Product + ' ' + part.Uitvoering for part in componentsGPU | filter:$viewValue | limitTo:100" class="form-control">
+
+    <h4>Custom templates for results</h4>
+    <pre>Model: {{customSelected | json}}</pre>
+    <input type="text" ng-model="customSelected" placeholder="Custom template" typeahead="state as state.name for state in statesWithFlags | filter:{name:$viewValue}" typeahead-template-url="customTemplate.html" class="form-control">
+</div>
+
+  </body>
+</html>
+
