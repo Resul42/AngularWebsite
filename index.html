@@ -1,10 +1,11 @@
 <!doctype html>
 <html ng-app="ui.bootstrap.demo">
   <head>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
-    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
-    <script src="angularscript.js"></script>
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+      <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
+      <script src="angularscript.js"></script>
+      <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
 
@@ -15,20 +16,34 @@
 </script>
 
 <div class='container-fluid' ng-controller="TypeaheadCtrl">
+    <div id="CPU">
+        <h4>Processor</h4>
+        <pre>Kies uw Processor:</pre>
+        <input type="text" ng-model="selected.cpu" placeholder="Bijvoorbeeld Intel Core i7" typeahead="cpu as cpu.Product + cpu.Uitvoering + ' ' + cpu.Verkoopstatus for cpu in componentsCPU | filter:$viewValue | limitTo:20" class="form-control">
+    </div>
+        <div id="GPU">
+        <h4>Graphics Card</h4>
+        <pre>Kies uw Graphische Kaart</pre><input type="text" ng-model="selected.gpu" placeholder="Bijvoorbeeld GeForce GTX 970" typeahead="gpu as gpu.Product + ' ' + gpu.Uitvoering for gpu in componentsGPU | filter:$viewValue | limitTo:20" class="form-control">
+    </div>
+    <div id="MEMORY">
+        <h4>Memory</h4>
+        <pre>Kies uw Memory/RAM{</pre>
+        <input type="text" ng-model="selected.memory" placeholder="Bijvoorbeeld Crucial of 8GB" typeahead="memory as memory.Uitvoering + ' ' + memory.Geheugengrootte for memory in componentsMemory | filter:$viewValue | limitTo:20" class="form-control">
+        </div>
+    <div id="MOTHERBOARD">
+        <h4>Motherboard</h4>
+        <pre>Select your Motherboard{</pre>
+        <input type="text" ng-model="selected.motherboard" placeholder="Bijvoorbeeld ASRock 970 Extreme" typeahead="mb as mb.Product + ' ' + mb.Uitvoering for mb in componentsMotherboard | filter:$viewValue | limitTo:20" class="form-control">
+    </div>
+    <div id="OPTICALDRIVE">
+        <h4>Optical Drive</h4>
+        <pre>Select your Optical Drive</pre>
+        <input type="text" ng-model="selected.opticaldrive" placeholder="Bijvoorbeeld Samsung of BluRay" typeahead="od as od.Product + ' ' + od.Uitvoering for od in componentsOD | filter:$viewValue | limitTo:20" class="form-control">
+    </div>
 
-    <h4>CPU</h4>
-    <pre>SELECTED CPU:</pre>
-    <input type="text" ng-model="selected.cpu" placeholder="Kies je CPU" typeahead="cpu as cpu.Product + ' ' + cpu.Uitvoering for cpu in componentsCPU | filter:$viewValue | limitTo:100" class="form-control">
-
-    <h4>GPU</h4>
-    <pre>SELECTED GPU:</pre>
-    <input type="text" ng-model="selected.gpu" placeholder="Kies je GPU" typeahead="gpu as gpu.Product + ' ' + gpu.Uitvoering for gpu in componentsGPU | filter:$viewValue | limitTo:100" class="form-control">
-
-    <h4>Custom templates for results</h4>
-    <pre>Model: {{customSelected | json}}</pre>
-    <input type="text" ng-model="customSelected" placeholder="Custom template" typeahead="state as state.name for state in statesWithFlags | filter:{name:$viewValue}" typeahead-template-url="customTemplate.html" class="form-control">
     <input type="submit" ng-click="update(selected)" value="Save">
-    <pre>master = {{master | json}}</pre>
+    <pre>{{computer | json}}</pre>
+
 
 </div>
   </body>
