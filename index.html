@@ -16,6 +16,7 @@
 </script>
 
 <div class='container-fluid' ng-controller="TypeaheadCtrl">
+<<<<<<< HEAD
     <div id="CPU">
         <h4>Processor</h4>
         <pre>Kies uw Processor:</pre>
@@ -44,6 +45,25 @@
     <input type="submit" ng-click="update(selected)" value="Save">
     <pre>{{computer | json}}</pre>
 
+=======
+<div id="CPU">
+    <h4>Processor</h4>
+    <pre>Selected Processor:</pre>
+    <input type="text" ng-model="selected.cpu" placeholder="Kies je Processor" typeahead="cpu as cpu.Product + cpu.Uitvoering for cpu in componentsCPU | filter:$viewValue | limitTo:10" class="form-control">
+</div>
+    <div id="GPU">
+    <h4>Graphics Card</h4>
+    <pre>Selected Graphics Card:</pre>
+    <input type="text" ng-model="selected.gpu" placeholder="Kies je Graphics Card" typeahead="gpu as gpu.Product + gpu.Uitvoering for gpu in componentsGPU | filter:$viewValue | limitTo:10" class="form-control">
+</div>
+    <div id="MEMORY">
+    <h4>Memory</h4>
+    <pre>Selected Memory{</pre>
+    <input type="text" ng-model="selected.memory" placeholder="Kies je Memory" typeahead="memory as memory.Uitvoering + ' ' + memory.Modulegrootte for memory in componentsMemory | filter:$viewValue | limitTo:10" class="form-control">
+    </div>
+    <input type="submit" ng-click="update(selected)" value="Save">
+    <pre>computer = {{computer | json}}</pre>
+>>>>>>> 0cf9df83a462c5ae45aa532fb6d3f90df15c891f
 
 </div>
   </body>
