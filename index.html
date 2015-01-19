@@ -27,20 +27,29 @@
     </div>
     <div id="MEMORY">
         <h4>Memory</h4>
-        <pre>Kies uw Memory/RAM{</pre>
+        <pre>Kies uw Memory/RAM</pre>
         <input type="text" ng-model="selected.memory" placeholder="Bijvoorbeeld Crucial of 8GB" typeahead="memory as memory.Uitvoering + ' ' + memory.Geheugengrootte for memory in componentsMemory | filter:$viewValue | limitTo:20" class="form-control">
         </div>
     <div id="MOTHERBOARD">
         <h4>Motherboard</h4>
-        <pre>Select your Motherboard{</pre>
+        <pre>Kies uw Moederbord</pre>
         <input type="text" ng-model="selected.motherboard" placeholder="Bijvoorbeeld ASRock 970 Extreme" typeahead="mb as mb.Product + ' ' + mb.Uitvoering for mb in componentsMotherboard | filter:$viewValue | limitTo:20" class="form-control">
     </div>
     <div id="OPTICALDRIVE">
         <h4>Optical Drive</h4>
-        <pre>Select your Optical Drive</pre>
-        <input type="text" ng-model="selected.opticaldrive" placeholder="Bijvoorbeeld Samsung of BluRay" typeahead="od as od.Product + ' ' + od.Uitvoering for od in componentsOD | filter:$viewValue | limitTo:20" class="form-control">
+        <pre>Kies uw Optische Drive</pre>
+        <input type="text" ng-model="selected.opticaldrive" placeholder="Bijvoorbeeld Samsung of LG" typeahead="od as od.Product + ' ' + od.Uitvoering for od in componentsOD | filter:$viewValue | limitTo:20" class="form-control">
     </div>
-
+    <div id="POWERSUPPLY">
+        <h4>Power Supply</h4>
+        <pre>Kies uw Power Supply</pre>
+        <input type="text" ng-model="selected.powersupply" placeholder="Bijvoorbeeld Samsung of LG" typeahead="psu as psu.Merk + ' ' + psu.Uitvoering + ' ' + psu.Vermogen(watt) for psu in componentsPSU | filter:$viewValue | limitTo:20" class="form-control">
+    </div>
+    <div id="CASE">
+        <h4>Behuizing</h4>
+        <pre>Kies uw Behuizing</pre>
+        <input type="text" ng-model="selected.case" placeholder="Bijvoorbeeld Samsung of LG" typeahead="case as case.Merk + ' ' + case.Product + ' ' + case.Vermogen(watt) for case in componentsCASE | filter:$viewValue | limitTo:20" class="form-control">
+    </div>
     <input type="submit" ng-click="update(selected)" value="Save">
     <pre>{{computer | json}}</pre>
 
