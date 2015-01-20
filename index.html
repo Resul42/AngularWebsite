@@ -1,6 +1,12 @@
 <!doctype html>
 <html ng-app="ui.bootstrap.demo">
   <head>
+      <script>
+          function disableInput(){
+              document.getElementsByClassName("ng-scope ng-binding").disabled = true;
+
+      }
+      </script>
       <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
       <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
       <script src="angularscript.js"></script>
@@ -13,13 +19,14 @@
   <a>
       <span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
   </a>
+    console.log("a");
 </script>
 
 <div class='container-fluid' ng-controller="TypeaheadCtrl">
     <div id="CPU">
         <h4>Processor</h4>
         <pre>Kies uw Processor:</pre>
-        <input type="text" ng-model="selected.cpu" placeholder="Bijvoorbeeld Intel Core i7" typeahead="cpu as cpu.Product + cpu.Uitvoering + ' ' + cpu.Verkoopstatus for cpu in componentsCPU | filter:$viewValue | limitTo:20" class="form-control">
+        <input type="text" id="cpuInput" ng-model="selected.cpu" placeholder="Bijvoorbeeld Intel Core i7" typeahead="cpu as cpu.Product + cpu.Uitvoering + ' ' + cpu.Verkoopstatus for cpu in componentsCPU | filter:$viewValue | limitTo:20" class="form-control"ng-disabled="">
     </div>
         <div id="GPU">
         <h4>Graphics Card</h4>
