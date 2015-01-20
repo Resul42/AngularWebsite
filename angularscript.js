@@ -36,6 +36,11 @@ angular.module('ui.bootstrap.demo').controller('TypeaheadCtrl', function($scope,
         $scope.componentsCASE = response.data;
     });
 
+    $scope.selectedSSD = "";
+    $http.get("JSON/SSD.json").then(function(response){
+        $scope.componentsSSD = response.data;
+    });
+
     $scope.computer = {};
     $scope.update = function(selected) {
         $scope.computer = angular.copy(selected);
