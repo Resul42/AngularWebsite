@@ -41,6 +41,16 @@ angular.module('ui.bootstrap.demo').controller('TypeaheadCtrl', function($scope,
         $scope.componentsSSD = response.data;
     });
 
+    $scope.selectedHDD = "";
+    $http.get("JSON/HDD.json").then(function(response){
+        $scope.componentsHDD = response.data;
+    });
+
+    $scope.selectedSound = "";
+    $http.get("JSON/SOUNDCARD.json").then(function(response){
+        $scope.componentsSOUND = response.data;
+    });
+
     $scope.computer = {};
     $scope.update = function(selected) {
         $scope.computer = angular.copy(selected);
