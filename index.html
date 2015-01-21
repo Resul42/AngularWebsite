@@ -50,7 +50,7 @@
     <div id="POWERSUPPLY">
         <h4>Power Supply</h4>
         <pre>Kies uw Power Supply</pre>
-        <input type="text" ng-model="selected.powersupply" placeholder="Bijvoorbeeld Samsung of LG" typeahead="psu as psu.Merk + ' ' + psu.Uitvoering + ' ' + psu.Vermogen(watt) for psu in componentsPSU | filter:$viewValue | limitTo:20" class="form-control">
+        <input type="text" ng-model="selected.powersupply" placeholder="Bijvoorbeeld Samsung of LG" typeahead="psu as psu.Merk + ' model: ' + psu.Product + ' ' + psu.Uitvoering for psu in componentsPSU | filter:$viewValue | limitTo:20" class="form-control">
     </div>
     <div id="CASE">
         <h4>Behuizing</h4>
